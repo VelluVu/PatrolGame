@@ -18,7 +18,7 @@ public class TrackingState : IEnemyState
 
     public void ToAlertState()
     {
-
+        enemy.currentState = enemy.alertState;
     }
 
     public void ToChaseState()
@@ -38,6 +38,34 @@ public class TrackingState : IEnemyState
 
     public void UpdateState()
     {
+        CheckPlayerPos();
+        Look();
+    }
 
+    private void Look()
+    {
+        RaycastHit hit;
+        Debug.DrawRay(enemy.eyes.transform.position, enemy.eyes.forward * enemy.GetSightRange(), Color.green, 2f);
+
+        if (Physics.Raycast(enemy.eyes.transform.position, enemy.eyes.forward, out hit, enemy.GetSightRange()) && hit.collider.CompareTag("Player"))
+        {
+            enemy.chaseTarget = hit.transform;
+            ToChaseState();
+        }
+    }
+
+    public void CheckPlayerPos()
+    {
+        enemy.indicator.material.color = Color.green;
+
+
+        
+            if (enemy.navMeshAgent.remainingDistance == 0)
+            {
+                ToAlertState();
+            }
+        
+        
+        
     }
 }

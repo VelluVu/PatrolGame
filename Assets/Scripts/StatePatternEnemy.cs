@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class StatePatternEnemy : MonoBehaviour {
 
-    /// <summary>
-    /// Tee neljäs tila TrackingState
-    /// Kun enemy kadottaa pelaajan ei mene alert vaan
-    /// siirry viimeisimpään pelaajan tiedossa olevaan locaatioon
-    /// jossa käynnistää alertstate
-    /// </summary>
-    /// 
+    
     float searchingTurnSpeed;
     float searchingDuration;
     float sightRange;

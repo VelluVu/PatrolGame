@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour {
 
 	void Start () {
         jumpForce = 300f * Time.deltaTime;
-        moveSpeed = 10f * Time.deltaTime;
+        moveSpeed = 5f * Time.deltaTime;
         rotationSpeed = 50f * Time.deltaTime;
         rb = gameObject.GetComponent<Rigidbody>();
 	}
